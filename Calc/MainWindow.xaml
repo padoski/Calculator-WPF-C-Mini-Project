@@ -43,7 +43,7 @@
         <Button Margin="5 5 5 5" x:Name="ButtonC" Grid.Row="1" Grid.Column="1" Click="ButtonC_Click">C</Button>
         <Button Margin="5 5 5 5" x:Name="ButtonBCSP" Grid.Row="1" Grid.Column="2" Click="ButtonBCSP_Click">⌫</Button>
         <!--Positive and negative-->
-        <Button Margin="5 5 5 5" x:Name="ButtonPosAndNeg" Grid.Row="5" Grid.Column="0">+/-</Button>
+        <Button Margin="5 5 5 5" x:Name="ButtonPosAndNeg" Grid.Row="5" Grid.Column="0" Click="ButtonPosAndNeg_Click">+/-</Button>
         <!--Display Text Box-->
         <TextBox Margin="5 5 5 5" x:Name="ResultDisplay" TextAlignment="Right" BorderThickness="0" VerticalAlignment="Bottom" FontSize="30" IsReadOnly="True" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"></TextBox>
         <TextBox Margin="5 5 5 5" x:Name="ComputingDisplay" TextAlignment="Left" BorderThickness="0" VerticalAlignment="Top" FontSize="20" IsReadOnly="True" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"></TextBox>

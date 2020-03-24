@@ -59,9 +59,9 @@ namespace Calculator
                 
                 _counter++;
                 Calculations();
-                UpdateComputings();
                 Button tempButton = (Button)sender;
                 _operation = Convert.ToChar(tempButton.Content);
+                UpdateComputings();
                 if (_counter == 1)
                 {
                     ComputingDisplay.Text = ResultDisplay.Text + Convert.ToString(_operation);
@@ -102,7 +102,7 @@ namespace Calculator
         private void Common_Click(object sender, RoutedEventArgs e)
         {
             bool isAlreadyCommon = ResultDisplay.Text.Contains('.');
-            if (isAlreadyCommon==false)
+            if (isAlreadyCommon==false && ResultDisplay.Text.Length!=0)
             {
                 ResultDisplay.Text+='.';
             }
@@ -142,11 +142,20 @@ namespace Calculator
                         _actualResult = Math.Round(_actualResult, 10);
                         break;
                 case '/':
-                    _actualResult /= Convert.ToDecimal(ResultDisplay.Text);
-                        _actualResult = Math.Round(_actualResult, 10);
-                    
+                        if(Convert.ToDecimal(ResultDisplay.Text)==0)
+                        {
+                            MessageBox.Show("NIE DZIELIMY PRZEZ ZERO!");
+                            ComputingDisplay.Text = "";
+                            _actualResult = 0;
+                            ResultDisplay.Text = "";
+                        }
+                        else
+                        {
+                            _actualResult /= Convert.ToDecimal(ResultDisplay.Text);
+                            _actualResult = Math.Round(_actualResult, 10);  
+                        }
                         break;
-            }
+                }
             }
             catch
             {
@@ -166,6 +175,16 @@ namespace Calculator
                 _actualResult = 0;
                 MessageBox.Show("Wpisana liczba jest za duża");
             }
+        }
+
+        private void ButtonPosAndNeg_Click(object sender, RoutedEventArgs e)
+        {
+            if(ResultDisplay.Text!="")
+            {
+                _actualResult = Convert.ToDecimal(ResultDisplay.Text);
+                _actualResult = _actualResult * (-1);
+                ResultDisplay.Text = _actualResult.ToString();
+            } 
         }
     }
 }
