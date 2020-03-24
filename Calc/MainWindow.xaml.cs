@@ -91,6 +91,7 @@ namespace Calculator
         {
             ResultDisplay.Text = "";
         }
+
         private void ButtonBCSP_Click(object sender, RoutedEventArgs e)
         {
             if(ResultDisplay.Text.Length>0 && _isLastOperation==false)
