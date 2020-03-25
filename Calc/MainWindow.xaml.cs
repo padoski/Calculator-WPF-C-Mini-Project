@@ -165,6 +165,7 @@ namespace Calculator
                 MessageBox.Show("Wpisana liczba jest za duża");
             }
            
+
         }
         
         private void IsTooLarge()
