@@ -45,11 +45,16 @@ namespace Calculator
             }
 
             Button tempButton = (Button)sender;
-            ResultDisplay.Text += tempButton.Content;
 
-            IsTooLarge();
-
-
+            if (ResultDisplay.Text == "" && tempButton.Content.Equals("0"))
+            {
+                
+            }
+            else
+            {
+                ResultDisplay.Text += tempButton.Content;
+                IsTooLarge();
+            }
         }
         private void ButtonOperation_Click(object sender, RoutedEventArgs e)
         {
